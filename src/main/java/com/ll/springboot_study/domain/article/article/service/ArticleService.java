@@ -10,8 +10,9 @@ public class ArticleService {
     private List<Article> articles = new ArrayList<>();
 
     public Article write(String title, String body) {
-        Article article = new Article(articles.size()+1, title, body);
+        Article article = new Article(articles.size() + 1, title, body);
         articles.add(article);
+        return article;
     }
 
     public Article findLastArticle() {
