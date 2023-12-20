@@ -3,7 +3,6 @@ package com.ll.springboot_study.domain.article.article.controller;
 import com.ll.springboot_study.domain.article.article.entity.Article;
 import com.ll.springboot_study.domain.article.article.service.ArticleService;
 import com.ll.springboot_study.global.rsData.RsData;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +14,6 @@ import java.util.List;
 public class ArticleController {
     private final ArticleService articleService;
 
-    @Autowired // 생성자 주입, fianl이 가능하다.
     public ArticleController(ArticleService articleService){
         this.articleService = articleService;
     }
