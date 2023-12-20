@@ -18,5 +18,11 @@ public class HomeController {
     String showAbout(){
         return "개발자 커뮤니티";
     }
+
+    @GetMapping("/calc")
+    @ResponseBody
+    String showCalc(int a, int b){ // int의 경우 null값을 가질 수 없기에 오류발생
+        return "계산기";
+    }
 }
 
