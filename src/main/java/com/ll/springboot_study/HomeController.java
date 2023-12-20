@@ -126,5 +126,17 @@ public class HomeController {
                 </div>
                 """;
     }
+
+    @GetMapping("/calc14")
+    @ResponseBody
+    String showCalc14(){
+        StringBuilder sb = new StringBuilder(); // 문자열을 이어 붙이는 것 보다 메모리 측면에서 빌더를 사용하는 것을 권장
+
+        sb.append("<div>");
+        sb.append("<h1>제목</h1>");
+        sb.append("</div>");
+
+        return sb.toString();
+    }
 }
 
