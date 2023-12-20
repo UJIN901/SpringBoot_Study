@@ -162,11 +162,12 @@ public class HomeController {
         return "calc17";
     }
 
+    int num = 0;
+
     @GetMapping("/calc18")
     @ResponseBody
     int showCalc18(){
-        int num = 0; // 지역변수로 사용
-        num++;
+        num++; // 인스턴스 변수로 증가되는 값이 적용된다.
         return num;
     }
 }
