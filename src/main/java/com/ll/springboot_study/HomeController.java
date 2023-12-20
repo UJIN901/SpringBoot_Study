@@ -49,5 +49,11 @@ public class HomeController {
     String showCalc5(@RequestParam(defaultValue = "0") double a,@RequestParam(defaultValue = "0") double b){
         return "계산 결과 : %f".formatted(a + b);
     }
+
+    @GetMapping("/calc6")
+    @ResponseBody
+    String showCalc6(@RequestParam(defaultValue = "0") String a,@RequestParam(defaultValue = "0") String b){
+        return "계산 결과 : %s".formatted(a + b);
+    }
 }
 
