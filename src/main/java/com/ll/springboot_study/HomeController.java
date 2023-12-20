@@ -161,5 +161,13 @@ public class HomeController {
         model.addAttribute("v2", "반가워");
         return "calc17";
     }
+
+    @GetMapping("/calc18")
+    @ResponseBody
+    int showCalc18(){
+        int num = 0; // 지역변수로 사용
+        num++;
+        return num;
+    }
 }
 
