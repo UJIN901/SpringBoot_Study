@@ -24,5 +24,11 @@ public class HomeController {
     String showCalc(int a, int b){ // int의 경우 null값을 가질 수 없기에 오류발생
         return "계산기";
     }
+
+    @GetMapping("/calc2")
+    @ResponseBody
+    String showCalc2(Integer a, Integer b){ // Integer의 경우 null 값을 허용하기에 가능하다.
+        return "계산기";
+    }
 }
 
