@@ -116,5 +116,15 @@ public class HomeController {
         }};
         return persons;
     }
+
+    @GetMapping("/calc13")
+    @ResponseBody
+    String showCalc13(){
+        return """
+                <div>
+                <input type="text" name="username" placeholder="이름을 입력하세요.">
+                </div>
+                """;
+    }
 }
 
