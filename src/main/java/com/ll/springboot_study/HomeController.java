@@ -67,5 +67,10 @@ public class HomeController {
     boolean showCalc8(int a, int b){
         return a > b;
     }
+
+    class Person {
+        private String name;
+        private int age;
+    }
 }
 
