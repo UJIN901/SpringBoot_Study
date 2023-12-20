@@ -61,5 +61,11 @@ public class HomeController {
     int showCalc7(int a, int b){
         return a + b; // 결과값이 문자열로 변형되서 출력된다.
     }
+
+    @GetMapping("/calc8")
+    @ResponseBody
+    boolean showCalc8(int a, int b){
+        return a > b;
+    }
 }
 
