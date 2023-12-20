@@ -13,7 +13,7 @@ import java.util.List;
 
 @Controller
 public class ArticleController {
-    @Autowired // 필드 주입, final은 뺀다.
+    @Autowired // 필드 주입, final은 뺀다. @Component가 붙은것만 해당.
     private ArticleService articleService;
 
     @GetMapping("/article/write")
