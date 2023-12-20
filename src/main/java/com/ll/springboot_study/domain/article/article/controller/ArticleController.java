@@ -13,8 +13,12 @@ import java.util.List;
 
 @Controller
 public class ArticleController {
-    @Autowired // 필드 주입, final은 뺀다. @Component가 붙은것만 해당.
-    private ArticleService articleService;
+    private final ArticleService articleService;
+
+    @Autowired // 생성자 주입, fianl이 가능하다.
+    public ArticleController(ArticleService articleService){
+        this.articleService = articleService;
+    }
 
     @GetMapping("/article/write")
     String showWrite(){
