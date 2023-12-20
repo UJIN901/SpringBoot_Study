@@ -1,4 +1,4 @@
-package com.ll.springboot_study;
+package com.ll.springboot_study.domain.home.home.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
