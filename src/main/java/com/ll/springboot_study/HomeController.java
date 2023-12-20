@@ -1,5 +1,6 @@
 package com.ll.springboot_study;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,6 +69,7 @@ public class HomeController {
         return a > b;
     }
 
+    @AllArgsConstructor // 클래스의 모든 필드의 인자를 받는 생성자를 자동으로 생성
     class Person {
         private String name;
         private int age;
