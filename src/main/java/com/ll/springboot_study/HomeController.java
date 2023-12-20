@@ -2,6 +2,7 @@ package com.ll.springboot_study;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller // 해당 클래스가 Controller임을 인지한다.
@@ -34,6 +35,12 @@ public class HomeController {
     @GetMapping("/calc3")
     @ResponseBody
     String showCalc3(int a, int b){ // url에 값을 같이 넣어서 보내게 된다면(null 값이 아닌) 가능하다.
+        return "계산 결과 : %d".formatted(a + b);
+    }
+
+    @GetMapping("/calc4")
+    @ResponseBody
+    String showCalc4(@RequestParam(defaultValue = "0") int a,@RequestParam(defaultValue = "0") int b){ // 값이 없을 경우 defaultValue값이 들어간다.
         return "계산 결과 : %d".formatted(a + b);
     }
 }
