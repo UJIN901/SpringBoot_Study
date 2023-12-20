@@ -1,5 +1,5 @@
 <!-- form으로 변경하면 전송이 되는 것을 확인할 수 있다. action을 따로 지정안해주면 본인에게 발송, return false 시 폼 전송 X-->
-<form onsubmit="submitWriteForm(this)" style="display: flex; flex-direction: column; gap: 20px; max-width: 500px;">
+<form action="/article/doWrite" onsubmit="submitWriteForm(this); return false;" style="display: flex; flex-direction: column; gap: 20px; max-width: 500px;">
     <!-- id의 경우 유니크해야한다. -->
     <input type="text" name = "title" placeholder="제목">
     <input type="text" name = "body" placeholder="내용">
@@ -33,6 +33,6 @@
             return;
         }
 
-        location.href = `/article/doWrite?title=${title}&body=${body}`;
+        form.submit;
     }
 </script>
