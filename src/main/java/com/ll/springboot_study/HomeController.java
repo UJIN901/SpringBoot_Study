@@ -71,8 +71,14 @@ public class HomeController {
 
     @AllArgsConstructor // 클래스의 모든 필드의 인자를 받는 생성자를 자동으로 생성
     class Person {
-        private String name;
-        private int age;
+        public String name;
+        public int age;
+    }
+
+    @GetMapping("/calc9")
+    @ResponseBody
+    Person showCalc9(String name, int age){
+        return new Person(name, age);
     }
 }
 
