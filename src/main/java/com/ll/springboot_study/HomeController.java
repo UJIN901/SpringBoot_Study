@@ -55,5 +55,11 @@ public class HomeController {
     String showCalc6(@RequestParam(defaultValue = "0") String a,@RequestParam(defaultValue = "0") String b){
         return "계산 결과 : %s".formatted(a + b);
     }
+
+    @GetMapping("/calc7")
+    @ResponseBody
+    int showCalc7(int a, int b){
+        return a + b; // 결과값이 문자열로 변형되서 출력된다.
+    }
 }
 
