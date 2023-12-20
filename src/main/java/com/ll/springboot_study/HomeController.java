@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Controller // 해당 클래스가 Controller임을 인지한다.
@@ -102,6 +104,17 @@ public class HomeController {
     Map<String, Object> showCalc11(String name, int age){
         Map<String, Object> personMap = Map.of("name", name, "age", age); // Object를 활용해 여러 타입 받을 수 있도록 허용.
         return personMap;
+    }
+
+    @GetMapping("/calc12")
+    @ResponseBody
+    List<Person2> showCalc12(String name, int age){
+        List<Person2> persons = new ArrayList<>(){{ // 값까지 설정해서 생성
+            add(new Person2(name, age));
+            add(new Person2(name, age));
+            add(new Person2(name, age));
+        }};
+        return persons;
     }
 }
 
