@@ -1,13 +1,12 @@
-<div style="display: flex; flex-direction: column; gap: 20px; max-width: 500px;">
+<form style="display: flex; flex-direction: column; gap: 20px; max-width: 500px;">
     <!-- id의 경우 유니크해야한다. -->
     <input type="text" id="input-title" placeholder="제목">
     <input type="text" id="input-body" placeholder="내용">
 
-    <!-- 아무것도 하지 않는다 -->
-    <a href="javascript:;" onclick="submitWriteForm();">
+    <button type="submit" onclick="submitWriteForm();">
         글쓰기
-    </a>
-</div>
+    </button>
+</form>
 
 <script>
     function submitWriteForm(){
