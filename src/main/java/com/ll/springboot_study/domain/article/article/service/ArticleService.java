@@ -4,11 +4,11 @@ package com.ll.springboot_study.domain.article.article.service;
 import com.ll.springboot_study.domain.article.article.entity.Article;
 import com.ll.springboot_study.domain.article.article.repository.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component // 한 번만 생성되고 재사용된다.
+@Service
 public class ArticleService {
     @Autowired
     private ArticleRepository articleRepository;
