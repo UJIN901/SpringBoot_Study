@@ -3,6 +3,7 @@ package com.ll.springboot_study;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -152,6 +153,13 @@ public class HomeController {
     @GetMapping("/calc16") // ResponseBody를 제거하면 리턴값에 해당하는 뷰 파일의 값이 출력된다.
     String showCalc16(){
         return "calc16";
+    }
+
+    @GetMapping("/calc17")
+    String showCalc17(Model model){
+        model.addAttribute("v1", "안녕"); // 뷰 단과 연결을 위한 속성 추가
+        model.addAttribute("v2", "반가워");
+        return "calc17";
     }
 }
 
