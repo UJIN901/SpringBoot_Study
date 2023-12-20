@@ -138,5 +138,15 @@ public class HomeController {
 
         return sb.toString();
     }
+
+    @GetMapping("/calc15")
+    @ResponseBody
+    String showCalc15(){
+        return """
+                <div>
+                <input type="text" name="username" placeholder="이름을 입력하세요." value="김멋사">
+                </div>
+                """;
+    }
 }
 
