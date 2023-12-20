@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Map;
+
 @Controller // 해당 클래스가 Controller임을 인지한다.
 public class HomeController {
 
@@ -93,6 +95,13 @@ public class HomeController {
     @ResponseBody
     Person2 showCalc10(String name, int age){
         return new Person2(name, age);
+    }
+
+    @GetMapping("/calc11")
+    @ResponseBody
+    Map<String, Object> showCalc11(String name, int age){
+        Map<String, Object> personMap = Map.of("name", name, "age", age); // Object를 활용해 여러 타입 받을 수 있도록 허용.
+        return personMap;
     }
 }
 
