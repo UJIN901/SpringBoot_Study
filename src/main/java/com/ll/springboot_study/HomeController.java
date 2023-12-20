@@ -1,6 +1,7 @@
 package com.ll.springboot_study;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -79,6 +80,19 @@ public class HomeController {
     @ResponseBody
     Person showCalc9(String name, int age){
         return new Person(name, age);
+    }
+
+    @AllArgsConstructor
+    @Getter // private 필드값을 불러오기 위한 어노테이션
+    class Person2 {
+        private String name;
+        private int age;
+    }
+
+    @GetMapping("/calc10")
+    @ResponseBody
+    Person2 showCalc10(String name, int age){
+        return new Person2(name, age);
     }
 }
 
