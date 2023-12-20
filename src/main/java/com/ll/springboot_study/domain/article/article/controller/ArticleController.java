@@ -3,6 +3,7 @@ package com.ll.springboot_study.domain.article.article.controller;
 import com.ll.springboot_study.domain.article.article.entity.Article;
 import com.ll.springboot_study.domain.article.article.service.ArticleService;
 import com.ll.springboot_study.global.rsData.RsData;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,12 +12,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor // 사용시 final 붙은 필드에 대한 생성자를 생성해준다.
 public class ArticleController {
     private final ArticleService articleService;
 
-    public ArticleController(ArticleService articleService){
-        this.articleService = articleService;
-    }
 
     @GetMapping("/article/write")
     String showWrite(){
