@@ -30,5 +30,11 @@ public class HomeController {
     String showCalc2(Integer a, Integer b){ // Integer의 경우 null 값을 허용하기에 가능하다.
         return "계산기";
     }
+
+    @GetMapping("/calc3")
+    @ResponseBody
+    String showCalc3(int a, int b){ // url에 값을 같이 넣어서 보내게 된다면(null 값이 아닌) 가능하다.
+        return "계산 결과 : %d".formatted(a + b);
+    }
 }
 
