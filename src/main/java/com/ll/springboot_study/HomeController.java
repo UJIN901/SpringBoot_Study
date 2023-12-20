@@ -148,5 +148,10 @@ public class HomeController {
                 </div>
                 """;
     }
+
+    @GetMapping("/calc16") // ResponseBody를 제거하면 리턴값에 해당하는 뷰 파일의 값이 출력된다.
+    String showCalc16(){
+        return "calc16";
+    }
 }
 
