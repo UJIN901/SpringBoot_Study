@@ -2,6 +2,7 @@ package com.ll.springboot_study.domain.article.article.controller;
 
 import com.ll.springboot_study.domain.article.article.entity.Article;
 import com.ll.springboot_study.domain.article.article.service.ArticleService;
+import com.ll.springboot_study.global.rq.Rq;
 import com.ll.springboot_study.global.rsData.RsData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor // 사용시 final 붙은 필드에 대한 생성자를 생성해준다.
 public class ArticleController {
     private final ArticleService articleService;
+    private final Rq rq;
 
 
     @GetMapping("/article/write")
