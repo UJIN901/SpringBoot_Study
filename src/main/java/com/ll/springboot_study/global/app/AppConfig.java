@@ -10,6 +10,6 @@ import java.util.List;
 public class AppConfig {
     @Bean
     List<Article> articles(){
-        return new java.util.LinkedList<>();
+        return new java.util.ArrayList<>();
     }
 }
