@@ -1,15 +1,16 @@
 package com.ll.springboot_study.domain.article.article.repository;
 
 import com.ll.springboot_study.domain.article.article.entity.Article;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor
 public class ArticleRepository {
 
-    private List<Article> articles = new ArrayList<>();
+    private final List<Article> articles;
 
     public void save(Article article) {
         if (article.getId() == null){
