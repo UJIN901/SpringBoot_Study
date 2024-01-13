@@ -5,7 +5,9 @@ import com.ll.springboot_study.domain.article.article.service.ArticleService;
 import com.ll.springboot_study.global.rq.Rq;
 import com.ll.springboot_study.global.rsData.RsData;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,17 +29,21 @@ public class ArticleController {
         return "article/write";
     }
 
+    @Getter
+    @Setter
+    public static class WriteForm {
+        @NotBlank
+        private String title;
+        @NotBlank
+        private String body;
+
+    }
+
     @PostMapping("/article/write")
     @ResponseBody
-    RsData doWrite(@NotBlank(message = "제목을 입력하세요.") String title,@NotBlank(message = "내용을 입력하세요.") String body){
-//        if(title == null || title.trim().length() == 0){ // JavaScript 기능을 끄면 실행되지 않는 유효성 검사를 위한 로직 추가
-//            throw new IllegalArgumentException("제목을 입력해주세요.");
-//        }
-//        if(body == null || body.trim().length() == 0){
-//            throw new IllegalArgumentException("내용을 입력해주세요.");
-//        }
+    RsData doWrite(WriteForm writeForm){
 
-        Article article = articleService.write(title, body);
+        Article article = articleService.write(writeForm.title, writeForm.body);
         RsData<Article> rs = new RsData<>("S-1", "%d번 게시물이 작성되었습니다.".formatted(article.getId()), article);
 
         return rs;
