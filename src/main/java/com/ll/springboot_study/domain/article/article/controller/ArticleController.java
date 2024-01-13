@@ -28,10 +28,10 @@ public class ArticleController {
     @ResponseBody
     RsData doWrite(String title, String body){
         if(title == null || title.trim().length() == 0){ // JavaScript 기능을 끄면 실행되지 않는 유효성 검사를 위한 로직 추가
-            throw new IllegalArgumentException("제목을 입력해주세요.");
+            return new RsData<>("F-1", "제목을 입력해주세요.");
         }
         if(body == null || body.trim().length() == 0){
-            throw new IllegalArgumentException("내용을 입력해주세요.");
+            return new RsData<>("F-2", "내용을 입력해주세요.");
         }
 
         Article article = articleService.write(title, body);
