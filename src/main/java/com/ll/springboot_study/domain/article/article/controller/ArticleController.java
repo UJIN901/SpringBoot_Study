@@ -40,13 +40,12 @@ public class ArticleController {
     }
 
     @PostMapping("/article/write")
-    @ResponseBody
-    RsData doWrite(@Valid WriteForm writeForm){
+    String doWrite(@Valid WriteForm writeForm){
 
         Article article = articleService.write(writeForm.title, writeForm.body);
-        RsData<Article> rs = new RsData<>("S-1", "%d번 게시물이 작성되었습니다.".formatted(article.getId()), article);
+        String msg = "id %d, article created".formatted(article.getId());
 
-        return rs;
+        return "redirect:/article/list?msg=" + msg;
     }
 
     @GetMapping("/article/getLastArticle")
