@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Controller
@@ -40,7 +42,9 @@ public class ArticleController {
     String doWrite(@Valid WriteForm writeForm){
 
         Article article = articleService.write(writeForm.title, writeForm.body);
-        String msg = "id %d, article created".formatted(article.getId());
+        String msg = "%d번 게시물 생성되었습니다.".formatted(article.getId());
+
+        msg = URLEncoder.encode(msg, StandardCharsets.UTF_8);
 
         return "redirect:/article/list?msg=" + msg;
     }
@@ -58,7 +62,9 @@ public class ArticleController {
     @PostMapping("/article/modify/{id}")
     String modify(@PathVariable long id, @Valid ModifyForm modifyForm){
         articleService.modify(id, modifyForm.title, modifyForm.body);
-        String msg = "id %d, article modified".formatted(id);
+        String msg = "%d번 게시물 수정되었습니다.".formatted(id);
+
+        msg = URLEncoder.encode(msg, StandardCharsets.UTF_8);
 
         return "redirect:/article/list?msg=" + msg;
     }
@@ -89,7 +95,10 @@ public class ArticleController {
     @GetMapping("/article/delete/{id}")
     String delete(@PathVariable long id){
         articleService.delete(id);
-        String msg = "id %d, article deleted".formatted(id);
+        String msg = "%d번 게시물 삭제되었습니다.".formatted(id);
+
+        msg = URLEncoder.encode(msg, StandardCharsets.UTF_8);
+
         return "redirect:/article/list?msg=" + msg;
     }
 }
