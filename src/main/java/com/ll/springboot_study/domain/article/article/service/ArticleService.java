@@ -20,9 +20,6 @@ public class ArticleService {
         return article;
     }
 
-    public Article findLastArticle() {
-        return articleRepository.findLastArticle();
-    }
 
     public List<Article> findAll() {
         return articleRepository.findAll();
@@ -34,5 +31,12 @@ public class ArticleService {
 
     public void delete(long id) {
         articleRepository.delete(id);
+    }
+
+    public void modify(long id, String title, String body) {
+        Article article = findById(id).get();
+        article.setTitle(title);
+        article.setBody(body);
+
     }
 }
