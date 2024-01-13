@@ -48,6 +48,24 @@ public class ArticleController {
         return "redirect:/article/list?msg=" + msg;
     }
 
+    @Getter
+    @Setter
+    public static class ModifyForm {
+        @NotBlank
+        private String title;
+        @NotBlank
+        private String body;
+
+    }
+
+    @GetMapping("/article/modify/{id}")
+    String modify(Model model,  @PathVariable long id){
+        Article article = articleService.findById(id).get();
+        model.addAttribute("article", article);
+
+        return "article/modify";
+    }
+
     @GetMapping("/article/getLastArticle")
     @ResponseBody
     Article getLastArticle(){
