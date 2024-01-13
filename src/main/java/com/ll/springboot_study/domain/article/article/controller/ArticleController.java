@@ -59,5 +59,10 @@ public class ArticleController {
     List<Article> getArticles(){
         return articleService.findAll();
     }
+
+    @GetMapping("/article/list")
+    String showList(){
+        return "article/list";
+    }
 }
 
