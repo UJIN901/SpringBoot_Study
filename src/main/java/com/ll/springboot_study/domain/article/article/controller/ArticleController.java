@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -61,7 +62,9 @@ public class ArticleController {
     }
 
     @GetMapping("/article/list")
-    String showList(){
+    String showList(Model model){
+        List<Article> articles = articleService.findAll();
+        model.addAttribute("articles", articles);
         return "article/list";
     }
 }
