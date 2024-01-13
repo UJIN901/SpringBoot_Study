@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor // 사용시 final 붙은 필드에 대한 생성자를 생성해준다.
@@ -69,10 +68,9 @@ public class ArticleController {
     }
 
     @GetMapping("/article/detail/{id}")
-    @ResponseBody
-    String showDetail(@PathVariable long id){
-        Optional<Article> opArticle =  articleService.findById(id);
-        Article article = opArticle.get();
+    String showDetail(Model model,  @PathVariable long id){
+        Article article = articleService.findById(id).get();
+        model.addAttribute("article", article);
 
         return "article/detail";
     }
